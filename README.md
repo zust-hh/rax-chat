@@ -1,2 +1,2 @@
-# rax-chat
-Chat app built with rax, rax-redux, egg-socket.io, Egg.js, MongoDB, Material-UI
+# rax_graphQL_demo
+Simple app built with rax, rax-redux, koa, MongoDB, GraphQL
