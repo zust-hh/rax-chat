@@ -1,15 +1,14 @@
-const {
+import {
     GraphQLSchema,
-    GraphQLObjectType,
-} = require('graphql')
-
-const info = require('./info').info
-const infos = require('./info').infos
-const { student } = require('./student')
-const { course } = require('./course')
+    GraphQLObjectType
+  } from 'graphql';
+  
+import {info, infos} from './info'
+import {course} from './course'
+import {student} from './student'
 
 // 导出GraphQLSchema模块
-exports.default = new GraphQLSchema({
+export default new GraphQLSchema({
     query: new GraphQLObjectType({
         name: 'Queries',
         fields: {

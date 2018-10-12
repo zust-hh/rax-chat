@@ -1,8 +1,8 @@
 // 引入模块
-const Koa = require('koa');
-const KoaStatic = require('koa-static')
-const Router =  require('koa-router')
-const bodyParser = require('koa-bodyparser');
+import Koa from 'koa'
+import KoaStatic from 'koa-static'
+import Router from 'koa-router'
+import bodyParser from 'koa-bodyparser'
 
 require('./mongodb/index')
 

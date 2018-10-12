@@ -1,4 +1,4 @@
-const {
+import {
     graphql,
     GraphQLSchema,
     GraphQLObjectType,
@@ -8,10 +8,11 @@ const {
     GraphQLNonNull,
     isOutputType,
     GraphQLInt
-} = require('graphql')
+  } from 'graphql';
 
-const mongoose = require('mongoose')
-const InfoType= require('./info').InfoType
+import mongoose from 'mongoose'
+
+import {InfoType} from './info'
 const Student = mongoose.model('Student')
 
 // 定义Student的数据类型
@@ -37,7 +38,7 @@ const StudentType = new GraphQLObjectType({
 })
 
 // 查询
-exports.student = {
+export const student = {
     type: new GraphQLList(StudentType),
     args: {},
     resolve (root, params, options) {

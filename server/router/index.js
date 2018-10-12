@@ -1,9 +1,10 @@
-const { graphqlKoa, graphiqlKoa} = require('graphql-server-koa')
-const { saveInfo, fetchInfo } = require('../controllers/info')
-const { saveStudent, fetchStudent, fetchStudentDetail } = require('../controllers/student')
-const { saveCourse, fetchCourse } = require('../controllers/course')
+import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
+import {saveInfo, fetchInfo} from '../controllers/info'
+import {saveStudent, fetchStudent, fetchStudentDetail} from '../controllers/student'
+import { saveCourse, fetchCourse } from '../controllers/course'
 // 引入Schema
-const schema = require('../graphql/schema').default
+import schema from '../graphql/schema'
+
 const router = require('koa-router')()
 
 // 设置每一个路由对应的相对的控制器

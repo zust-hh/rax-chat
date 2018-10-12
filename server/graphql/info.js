@@ -1,4 +1,4 @@
-const {
+import {
     graphql,
     GraphQLSchema,
     GraphQLObjectType,
@@ -7,9 +7,9 @@ const {
     GraphQLList,
     GraphQLNonNull,
     isOutputType
-} = require('graphql')
-
-const mongoose = require('mongoose')
+  } from 'graphql';
+  
+import mongoose from 'mongoose'
 const Info = mongoose.model('Info')
 
 // 定义日期时间 类型
@@ -26,7 +26,7 @@ const objType = new GraphQLObjectType({
 })
 
 // 定义Info的数据类型
-const InfoType = new GraphQLObjectType({
+export const InfoType = new GraphQLObjectType({
     name: 'Info',
     fields: {
         _id: {
@@ -48,7 +48,7 @@ const InfoType = new GraphQLObjectType({
 })
 
 // 批量查询
-exports.infos = {
+export const infos = {
     type: new GraphQLList(InfoType),
     args: {},
     resolve (root, params, options) {
@@ -57,7 +57,7 @@ exports.infos = {
 }
 
 // 根据id查询单条info记录
-exports.info = {
+export const info = {
     type: InfoType,
     // 传进来的参数
     args: {
@@ -70,5 +70,3 @@ exports.info = {
         return Info.findOne({ _id: params.id }).exec()  // 查询单条数据
     }
 }
-
-exports.InfoType = InfoType

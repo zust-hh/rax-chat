@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const config = require('../config');
+import mongoose from 'mongoose'
+import config from '../config'
 
 require('./schema/info')
 require('./schema/student')

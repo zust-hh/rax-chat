@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 const Info = mongoose.model('Info')
 
 // 保存Info信息
-exports.saveInfo = async (ctx, next) => {
+export const saveInfo = async (ctx, next) => {
     const opts = ctx.request.body
     const info = new Info(opts)
     const saveInfo = await info.save()
@@ -19,7 +19,7 @@ exports.saveInfo = async (ctx, next) => {
 }
 
 // 获取所有info数据
-exports.fetchInfo = async (ctx, next) => {
+export const fetchInfo = async (ctx, next) => {
     const infos = await Info.find({})
 
     if (infos.length) {

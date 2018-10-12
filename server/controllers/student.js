@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 const Student = mongoose.model('Student')
 
 // 保存学生数据的方法
-exports.saveStudent = async (ctx, next) => {
+export const saveStudent = async (ctx, next) => {
   // 获取前端请求的数据
   const opts = ctx.request.body
   
@@ -22,7 +22,7 @@ exports.saveStudent = async (ctx, next) => {
 }
 
 // 查询所有学生的数据
-exports.fetchStudent = async (ctx, next) => {
+export const fetchStudent = async (ctx, next) => {
   const students = await Student.find({})
 
   if (students.length) {
@@ -38,7 +38,7 @@ exports.fetchStudent = async (ctx, next) => {
 }
 
 // 查询学生的数据以及附加数据
-exports.fetchStudentDetail = async (ctx, next) => {
+export const fetchStudentDetail = async (ctx, next) => {
     // 利用populate来查询关联info的数据
     const students = await Student.find({}).populate({
         path: 'info',
