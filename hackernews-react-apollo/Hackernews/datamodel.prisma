@@ -1,0 +1,4 @@
+type Link implements Node {
+  description: String!
+  url: String!
+}
